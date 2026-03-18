@@ -1,0 +1,7 @@
+baseURL = 'https://TreeFanx.github.io/'
+languageCode = "zh-cn"
+title = "我的博客"
+theme = "PaperMod"
+
+[params]
+homeInfoParams = {Title = "你好 👋", Content = "欢迎来到我的博客"}
