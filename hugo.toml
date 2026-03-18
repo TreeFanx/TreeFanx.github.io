@@ -1,7 +1,22 @@
 baseURL = 'https://TreeFanx.github.io/'
 languageCode = "zh-cn"
-title = "我的博客"
+title = "TreeFan"
 theme = "PaperMod"
 
 [params]
-homeInfoParams = {Title = "你好 👋", Content = "欢迎来到我的博客"}
+  author = "TreeFan"
+  description = "TreeFan 的个人博客"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto"
+
+  [params.homeInfoParams]
+    Title = "Hi, 我是 TreeFan 👋"
+    Content = "欢迎来到我的博客，这里记录我的思考与分享。"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/TreeFanx"
