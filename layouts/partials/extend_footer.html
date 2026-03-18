@@ -25,20 +25,47 @@
 </script>
 <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 
-<!-- 樱花飘落 JS -->
-<script src="https://cdn.jsdelivr.net/npm/sakura.js/src/sakura.js"></script>
+<!-- 樱花飘落 -->
 <script>
-  window.addEventListener('load', function () {
-    new Sakura('body', {
-      colors: [
-        { colorInner: '#ffb7c5', colorOuter: '#ffb7c5' },
-        { colorInner: '#ffc0cb', colorOuter: '#ff9eb5' },
-        { colorInner: '#ffd1dc', colorOuter: '#ffb7c5' },
-      ],
-      delay: 300,
-      maxSize: 14,
-      minSize: 8,
-      speed: 1
+  (function () {
+    const colors = ['#ffb7c5', '#ffc0cb', '#ffd1dc', '#ff9eb5', '#ffcdd7'];
+    const style = document.createElement('style');
+    style.textContent = `
+      .sakura-petal {
+        position: fixed;
+        top: -20px;
+        border-radius: 50% 0 50% 0;
+        opacity: 0.85;
+        z-index: 9998;
+        pointer-events: none;
+        animation: sakuraFall linear forwards;
+      }
+      @keyframes sakuraFall {
+        0%   { transform: translateY(0)     rotate(0deg)   translateX(0px);   opacity: 0.85; }
+        50%  { transform: translateY(50vh)  rotate(360deg) translateX(30px);  opacity: 0.7;  }
+        100% { transform: translateY(105vh) rotate(720deg) translateX(-20px); opacity: 0;    }
+      }
+    `;
+    document.head.appendChild(style);
+
+    function createPetal() {
+      const petal = document.createElement('div');
+      const size = Math.random() * 8 + 8;
+      const duration = Math.random() * 4 + 4;
+      petal.className = 'sakura-petal';
+      petal.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        width: ${size}px;
+        height: ${size}px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration: ${duration}s;
+      `;
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), duration * 1000 + 100);
+    }
+
+    window.addEventListener('load', function () {
+      setInterval(createPetal, 250);
     });
-  });
+  })();
 </script>
