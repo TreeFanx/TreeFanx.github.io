@@ -24,3 +24,21 @@
   };
 </script>
 <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+<!-- 樱花飘落 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sakura.js/src/sakura.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    new Sakura('body', {
+      colors: [
+        { colorInner: '#ffb7c5', colorOuter: '#ffb7c5' },
+        { colorInner: '#ffc0cb', colorOuter: '#ff9eb5' },
+        { colorInner: '#ffd1dc', colorOuter: '#ffb7c5' },
+      ],
+      delay: 300,
+      maxSize: 14,
+      minSize: 8,
+      speed: 1
+    });
+  });
+</script>
